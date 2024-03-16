@@ -1,7 +1,5 @@
 import streamlit as st
 
-from streamlit_option_menu import option_menu
-
 import firebase_admin
 
 from firebase_admin import credentials, initialize_app, storage, firestore

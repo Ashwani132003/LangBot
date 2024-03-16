@@ -29,7 +29,7 @@ import base64
 # Initialize Google OAuth2 client
 client_id = st.secrets["client_id"]
 client_secret = st.secrets["client_secret"]
-redirect_url = "http://localhost:8501/"  # Your redirect URL
+redirect_url = st.secrets['redirect_url']  # Your redirect URL
 
 client = GoogleOAuth2(client_id=client_id, client_secret=client_secret)
 

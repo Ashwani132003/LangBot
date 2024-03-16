@@ -1,0 +1,6 @@
+streamlit
+firebase_admin
+httpx-oauth
+stripe
+openai
+SpeechRecognition

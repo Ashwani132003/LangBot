@@ -5,14 +5,20 @@ import speech_recognition as sr
 from src.main import global_state
 import pages.Account as account 
 
-openai_key = st.secrets['openai_key']
-openai.api_key = openai_key
+# openai_key = st.secrets['openai_key']
+# openai.api_key = openai_key
 
 
 if len(global_state.messages)==0:
     global_state.messages = [{"role": "system", "content": "You are a Language Learning Companion"}]
 
 def app():
+
+    with st.sidebar:
+        openapi_key = st.text_input("Please Enter your OpenApi Key to use the product!")
+
+        # openai_key = st.secrets['openai_key']
+        openai.api_key = openapi_key
 
     if not global_state.email:
         # account.get_logged_in_user_email()

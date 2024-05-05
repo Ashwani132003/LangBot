@@ -50,15 +50,27 @@ def app():
 
         payment_url=get_link(customer)  
         print(payment_url)                 
-        webbrowser.open(payment_url)
+        return payment_url
 
     st.title('Show your Support!!')
+    st.write('(Only for teaching, no real money transfer using this link )')
     if global_state.email:
-        if st.button('Donate'):
-            click()
+        # if st.button('Donate'):
+        url = click()
+        st.markdown(f'<a href="{url}" target="_blank" style="background-color: #008CBA; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px;">Donate</a>', unsafe_allow_html=True)
+            # click()
     else:
-        st.write('Please Login to be eligible for Payment!')        
+        st.write('Please Login to be eligible for Stripe Payment!')        
 
+    st.markdown('')
+    st.markdown('')
+    st.markdown('')
+    st.markdown('')
+
+    st.write("Buy me a coffee! (For actually showing your support!! Real money will be deducted)")
+    url ='https://buymeacoffee.com/beginnerscodezone'
+
+    st.markdown(f'<a href="{url}" target="_blank" style="background-color: #008CBA; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px;">Donate</a>', unsafe_allow_html=True)
 
 
 app()

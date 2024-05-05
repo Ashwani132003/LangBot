@@ -7,12 +7,12 @@ from firebase_admin import credentials, initialize_app, storage, firestore
 
 # import streamlit.components.v1 as components
 
-st.set_page_config(
-        page_title="LangBot",
-        page_icon=":pencil:",
-        layout="wide",
-        initial_sidebar_state="expanded",
-)
+# st.set_page_config(
+#         page_title="LangBot",
+#         page_icon=":pencil:",
+#         layout="wide",
+#         initial_sidebar_state="expanded",
+# )
 
 
 cred = credentials.Certificate("streamlitchat-a40f7-6ae30ae1b5c6.json")

@@ -95,29 +95,29 @@ def app():
         margin-top: 50px;
         z-index: 9999;
     }
-        @media only screen and (max-width: 768px) {
-            h1 {
-                width:400px;
-                color: red; /* Change color for smaller devices */
-            }
-        }
-        @media only screen and (min-width: 769px) and (max-width: 1200px) {
-            h1 {
-                width:700px;
+        # @media only screen and (max-width: 768px) {
+        #     h1 {
+        #         width:400px;
+        #         color: red; /* Change color for smaller devices */
+        #     }
+        # }
+        # @media only screen and (min-width: 769px) and (max-width: 1200px) {
+        #     h1 {
+        #         width:700px;
             
-                color: green; /* Change color for medium-sized devices */
-            }
-        }
-        @media only screen and (min-width: 1201px) {
-            h1 {
-                width:1094px;
-                color: orange; /* Change color for larger devices */
-            }
-            div[data-testid="stSelectbox"]  {
-                width:1284px;
-                color: orange; /* Change color for larger devices */
-            }
-        }
+        #         color: green; /* Change color for medium-sized devices */
+        #     }
+        # }
+        # @media only screen and (min-width: 1201px) {
+        #     h1 {
+        #         width:1094px;
+        #         color: orange; /* Change color for larger devices */
+        #     }
+        #     div[data-testid="stSelectbox"]  {
+        #         width:1284px;
+        #         color: orange; /* Change color for larger devices */
+        #     }
+        # }
     </style>
     """, unsafe_allow_html=True
     )
@@ -135,7 +135,7 @@ def app():
     if selectbox and global_state.selectbox!=selectbox:
         global_state.selectbox=selectbox
         st.session_state.q=''
-        global_state.messages = [{"role": "system", "content": f"You are a Language Learning Companion, you have to convert all the messages from user into {selectbox}"}]
+        global_state.messages = [{"role": "system", "content": f"You are a Language Learning Companion, you have to convert all the messages from user into {selectbox} and then explain the translations in detail"}]
         print(global_state.messages, selectbox)
     # Cards for some sample questions
 
@@ -148,24 +148,24 @@ def app():
 
         send()        
 
-    st.markdown("""
-        <script>
-            // Function to update element width
-            function updateElementWidth() {
-                var element = document.querySelector('[data-testid="stVerticalBlock"]');
-                var width = element.offsetWidth;
-                // Example: Update width based on current width
-                if (width > 300) {
-                    element.style.width = "200px"; // Adjust width as needed
-                } else {
-                    element.style.width = "200px"; // Adjust width as needed
-                }
-            }
-            // Call the function when the page loads and when it's resized
-            window.onload = updateElementWidth;
-            window.addEventListener("resize", updateElementWidth);
-        </script>
-    """, unsafe_allow_html=True)
+    # st.markdown("""
+    #     <script>
+    #         // Function to update element width
+    #         function updateElementWidth() {
+    #             var element = document.querySelector('[data-testid="stVerticalBlock"]');
+    #             var width = element.offsetWidth;
+    #             // Example: Update width based on current width
+    #             if (width > 300) {
+    #                 element.style.width = "200px"; // Adjust width as needed
+    #             } else {
+    #                 element.style.width = "200px"; // Adjust width as needed
+    #             }
+    #         }
+    #         // Call the function when the page loads and when it's resized
+    #         window.onload = updateElementWidth;
+    #         window.addEventListener("resize", updateElementWidth);
+    #     </script>
+    # """, unsafe_allow_html=True)
 
     print(global_state.messages)
     if len(global_state.messages)>1: 
@@ -196,4 +196,10 @@ def app():
     st.markdown("")
 
 if __name__ == '__main__':
+    st.set_page_config(
+        page_title="Home",
+        page_icon=":pencil:",
+        layout="wide",
+        initial_sidebar_state="expanded",
+    )
     app()    
